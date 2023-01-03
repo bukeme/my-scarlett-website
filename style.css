@@ -57,6 +57,12 @@ main {
 	flex-grow: 1;
 }
 
+.hero-section {
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh;
+}
+
 .nav__nav-items-container {
 	height: calc(2rem + 1.9vw + 2.3vh);
 	display: flex;
@@ -114,9 +120,74 @@ main {
 	display: none;
 }
 
+section#showcase {
+	flex-grow: 1;
+	background: url('img/full-bg-07.jpg') no-repeat center fixed;
+	background-size: cover;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: flex-start;
+}
+
+.showcase__card {
+	background-color: #99651E;
+	padding: 3rem;
+}
+
+.showcase__card--title {
+	font-size: 6rem;
+	color: white;
+	font-family: cursive;
+	font-weight: 600;
+}
+
+.showcase__card--para {
+	font-size: 3rem;
+	color: white;
+	font-family: 'Indie Flower';
+	font-weight: 300;
+	margin: 3rem 0;
+}
+
+.showcase__card--link:link,
+.showcase__card--link:visited {
+	font-size: 1.5rem;
+	color: white;
+	font-family: cursive;
+	font-weight: 600;
+}
+
 @media screen and (max-width:700px) {
 	.nav__nav-items-container {
-		display: none;
+		opacity: 0;
+		position: fixed;
+		top: 0;
+		right: 0;
+		height: 100vh;
+		width: calc(5rem + 33.33vw);
+		flex-direction: column;
+		justify-content: center;
+		align-items: flex-start;
+		padding-left: 4rem;
+	}
+
+	.nav__nav-items-container.active {
+		opacity: 1;
+	}
+
+	.nav__nav-items-container--nav-item:link,
+	.nav__nav-items-container--nav-item:visited {
+		margin: 1.5rem 0;
+		opacity: 0;
+		/*visibility: hidden;*/
+		transition: all 0.3s ease-in-out;
+	}
+
+	.active .nav__nav-items-container--nav-item:link,
+	.active .nav__nav-items-container--nav-item:visited {
+		opacity: 1;
+		/*visibility: visible;*/
 	}
 
 	.nav__hamburger-menu {
