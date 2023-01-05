@@ -13,6 +13,12 @@ a {
 	text-decoration: none;
 }
 
+img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
 body {
 	display: flex;
 }
@@ -33,12 +39,12 @@ aside {
 	height: calc(2rem + 1.9vw + 2.3vh);
 }
 
-.aside__img-container--img,
+/*.aside__img-container--img,
 .about-me__img-container--img {
 	width: 100%;
 	height: 100%;
 	object-fit: cover;
-}
+}*/
 
 .aside__icons-container {
 	display: flex;
@@ -162,7 +168,8 @@ section#showcase {
 .skills__design-skills--title,
 .skills__coding-skills--title,
 .skills__design-skills--skill__title,
-.skills__coding-skills--skill__title {
+.skills__coding-skills--skill__title,
+.testimonials__testimonial--card__title {
 	font-size: calc(2.5rem + 1.92vw);
 	color: white;
 	font-family: cursive;
@@ -171,7 +178,8 @@ section#showcase {
 
 .showcase__card--para,
 .about-me__content--para,
-.services__service--para {
+.services__service--para,
+.testimonials__testimonial--card__para {
 	font-size: calc(1.5rem + 0.77vw);
 	color: white;
 	font-family: 'Indie Flower';
@@ -233,8 +241,8 @@ section#projects {
 
 .projects__img-container--img {
 	clip-path: polygon(0% 20%, 20% 0%, 80% 0%, 100% 20%, 100% 80%, 80% 100%, 20% 100%, 0% 80%);
-	width: 100%;
-	height: 100%;
+	/*width: 100%;
+	height: 100%;*/
 }
 
 .projects__img-container--img:hover {
@@ -346,7 +354,8 @@ section#services {
 
 .services__service--title,
 .skills__design-skills--title,
-.skills__coding-skills--title {
+.skills__coding-skills--title,
+.testimonials__testimonial--card__title {
 	font-size: calc(1.5rem + 1.15vw);
 	color: black;
 }
@@ -480,6 +489,89 @@ section#skills {
 	}
 }
 
+section#testimonials {
+	background-color: #FF9408;
+	display: flex;
+	flex-wrap: wrap;
+	padding: calc(2rem + 1.54vw);
+}
+
+.testimonials__testimonial {
+	flex: 1 1 40rem;
+	padding: var(--container-spacing);
+	position: relative;
+}
+
+.testimonials__testimonial--card {
+	position: absolute;
+	bottom: 20%;
+	left: 0;
+	background-color: #01737470;
+	width: 80%;
+	transform: scaleY(0);
+	transform-origin: top;
+	transition: transform 0.35s ease-in-out;
+}
+
+.testimonials__testimonial--img {
+	transition: all 0.35s ease-in-out;
+}
+
+.testimonials__testimonial:hover .testimonials__testimonial--card {
+	transform: scaleY(1.0);
+	transform-origin: center;
+}
+
+.testimonials__testimonial:hover .testimonials__testimonial--img {
+	filter: grayscale(50%);
+	transform: scaleY(0.98);
+}
+
+.testimonials__testimonial--card__title {
+	color: white;
+}
+
+.testimonials__testimonial--card__para {
+	font-size: calc(1.5rem + 0.23vw);
+	margin-top: calc(0.5rem + 0.23vw);
+}
+
+section#contact-me {
+	min-height: 100vh;
+	background: url('img/full-bg-03.jpg') no-repeat top center;
+	background-size: cover;
+	display: flex;
+	justify-content: flex-end;
+	align-items: flex-end;
+}
+
+.contact-me__form {
+	width: 40rem;
+	background-color: #01737470;
+	display: flex;
+	flex-direction: column;
+}
+
+.contact-me__form > * {
+	padding: 2rem;
+	border: none;
+	border-bottom: 0.1rem solid #FF9408;
+	background: transparent;
+	font-size: 1.8rem;
+	color: white;
+	font-family: 'Indie Flower';
+}
+
+.contact-me__form textarea {
+	height: 20rem;
+}
+
+.contact-me__form button {
+	color: white;
+	cursor: pointer;
+	border: none;
+}
+
 @media screen and (max-width: 800px) {
 	section#showcase {
 		justify-content: flex-end;
@@ -491,6 +583,10 @@ section#skills {
 	}
 
 	section#about-me {
+		flex-direction: column;
+	}
+
+	section#skills {
 		flex-direction: column;
 	}
 }
@@ -594,7 +690,12 @@ section#skills {
 	}
 
 	.projects__img-container,
-	.services__service {
+	.services__service,
+	.testimonials__testimonial {
 		flex: 1 1 30rem;
+	}
+
+	.testimonials__testimonial--card {
+		bottom: 0;
 	}
 }
